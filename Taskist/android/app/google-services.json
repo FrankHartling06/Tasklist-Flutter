@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "841496386175",
+    "project_id": "tasklist-flutter-cc529",
+    "storage_bucket": "tasklist-flutter-cc529.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:841496386175:android:7a1b7cc2d81af7bf543d4a",
+        "android_client_info": {
+          "package_name": "com.huextrat.taskist"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "841496386175-mko72a2gbao48lfeklmlip0ac5rqc1q5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBJqOjM31JHsqq7LLu84-aTIiLRcDBAtoY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "841496386175-mko72a2gbao48lfeklmlip0ac5rqc1q5.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
