@@ -1,3 +1,5 @@
+// ignore_for_file: missing_return
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -34,7 +36,7 @@ class _DetailPageState extends State<DetailPage> {
           Container(
             child: NotificationListener<OverscrollIndicatorNotification>(
               onNotification: (overscroll) {
-                overscroll.disallowGlow();
+                overscroll.disallowIndicator();
               },
               child: new StreamBuilder<QuerySnapshot>(
                   stream: Firestore.instance
@@ -92,8 +94,7 @@ class _DetailPageState extends State<DetailPage> {
                 actions: <Widget>[
                   ButtonTheme(
                     //minWidth: double.infinity,
-                    child: RaisedButton(
-                      elevation: 3.0,
+                    child: ElevatedButton(
                       onPressed: () {
                         if (itemController.text.isNotEmpty &&
                             !widget.currentList.values
@@ -110,8 +111,11 @@ class _DetailPageState extends State<DetailPage> {
                         }
                       },
                       child: Text('Add'),
-                      color: currentColor,
-                      textColor: const Color(0xffffffff),
+                      style: ElevatedButton.styleFrom(
+                        foregroundColor: const Color(0xffffffff),
+                        backgroundColor: currentColor,
+                        elevation: 3.0,
+                      ),
                     ),
                   )
                 ],
@@ -189,20 +193,22 @@ class _DetailPageState extends State<DetailPage> {
                                 actions: <Widget>[
                                   ButtonTheme(
                                     //minWidth: double.infinity,
-                                    child: RaisedButton(
-                                      elevation: 3.0,
+                                    child: ElevatedButton(
                                       onPressed: () {
                                         Navigator.pop(context);
                                       },
                                       child: Text('No'),
-                                      color: currentColor,
-                                      textColor: const Color(0xffffffff),
+                                      style: ElevatedButton.styleFrom(
+                                        foregroundColor:
+                                            const Color(0xffffffff),
+                                        backgroundColor: currentColor,
+                                        elevation: 3.0,
+                                      ),
                                     ),
                                   ),
                                   ButtonTheme(
                                     //minWidth: double.infinity,
-                                    child: RaisedButton(
-                                      elevation: 3.0,
+                                    child: ElevatedButton(
                                       onPressed: () {
                                         Firestore.instance
                                             .collection(widget.user.uid)
@@ -213,8 +219,12 @@ class _DetailPageState extends State<DetailPage> {
                                         Navigator.of(context).pop();
                                       },
                                       child: Text('YES'),
-                                      color: currentColor,
-                                      textColor: const Color(0xffffffff),
+                                      style: ElevatedButton.styleFrom(
+                                        foregroundColor:
+                                            const Color(0xffffffff),
+                                        backgroundColor: currentColor,
+                                        elevation: 3.0,
+                                      ),
                                     ),
                                   ),
                                 ],
@@ -395,8 +405,7 @@ class _DetailPageState extends State<DetailPage> {
             height: 35.0,
             fit: BoxFit.cover,
             image: new AssetImage('assets/list.png')),
-        RaisedButton(
-          elevation: 3.0,
+        ElevatedButton(
           onPressed: () {
             pickerColor = currentColor;
             showDialog(
@@ -414,7 +423,7 @@ class _DetailPageState extends State<DetailPage> {
                     ),
                   ),
                   actions: <Widget>[
-                    FlatButton(
+                    TextButton(
                       child: Text('Got it'),
                       onPressed: () {
                         Firestore.instance
@@ -434,8 +443,11 @@ class _DetailPageState extends State<DetailPage> {
             );
           },
           child: Text('Color'),
-          color: currentColor,
-          textColor: const Color(0xffffffff),
+          style: ElevatedButton.styleFrom(
+            foregroundColor: const Color(0xffffffff),
+            backgroundColor: currentColor,
+            elevation: 3.0,
+          ),
         ),
         GestureDetector(
           onTap: () {

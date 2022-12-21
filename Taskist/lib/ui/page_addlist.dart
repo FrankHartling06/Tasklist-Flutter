@@ -112,7 +112,7 @@ class _NewTaskPageState extends State<NewTaskPage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return new Scaffold(
       key: _scaffoldKey,
       body: ModalProgressHUD(
           child: new Stack(
@@ -194,8 +194,7 @@ class _NewTaskPageState extends State<NewTaskPage> {
                           ),
                           ButtonTheme(
                             minWidth: double.infinity,
-                            child: RaisedButton(
-                              elevation: 3.0,
+                            child: ElevatedButton(
                               onPressed: () {
                                 pickerColor = currentColor;
                                 showDialog(
@@ -213,7 +212,7 @@ class _NewTaskPageState extends State<NewTaskPage> {
                                         ),
                                       ),
                                       actions: <Widget>[
-                                        FlatButton(
+                                        TextButton(
                                           child: Text('Got it'),
                                           onPressed: () {
                                             setState(() =>
@@ -227,8 +226,11 @@ class _NewTaskPageState extends State<NewTaskPage> {
                                 );
                               },
                               child: Text('Card color'),
-                              color: currentColor,
-                              textColor: const Color(0xffffffff),
+                              style: ElevatedButton.styleFrom(
+                                foregroundColor: const Color(0xffffffff),
+                                backgroundColor: currentColor,
+                                elevation: 3.0,
+                              ),
                             ),
                           ),
                         ],
@@ -238,14 +240,16 @@ class _NewTaskPageState extends State<NewTaskPage> {
                       padding: EdgeInsets.only(top: 50.0),
                       child: new Column(
                         children: <Widget>[
-                          new RaisedButton(
+                          new ElevatedButton(
                             child: const Text(
                               'Add',
                               style: TextStyle(color: Colors.white),
                             ),
-                            color: Colors.blue,
-                            elevation: 4.0,
-                            splashColor: Colors.deepPurple,
+                            style: ElevatedButton.styleFrom(
+                              foregroundColor: Colors.deepPurple,
+                              backgroundColor: Colors.blue,
+                              elevation: 4.0,
+                            ),
                             onPressed: addToFirebase,
                           ),
                         ],
@@ -284,9 +288,9 @@ class _NewTaskPageState extends State<NewTaskPage> {
   }
 
   void showInSnackBar(String value) {
-    _scaffoldKey.currentState?.removeCurrentSnackBar();
+    ScaffoldMessenger.of(context).hideCurrentSnackBar();
 
-    _scaffoldKey.currentState?.showSnackBar(new SnackBar(
+    ScaffoldMessenger.of(context).showSnackBar(new SnackBar(
       content: new Text(value, textAlign: TextAlign.center),
       backgroundColor: currentColor,
       duration: Duration(seconds: 3),
