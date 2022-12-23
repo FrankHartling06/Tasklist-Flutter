@@ -11,8 +11,8 @@ dependencies:
     sdk: flutter
 
   cupertino_icons: ^0.1.2
-  firebase_core: ^0.3.4
-  cloud_firestore: ^0.10.1
+  firebase_core: ^0.3.4                         #dependencias agregadas para la conexion con firebase
+  cloud_firestore: ^0.10.1                  
 
 dev_dependencies:
   flutter_test:

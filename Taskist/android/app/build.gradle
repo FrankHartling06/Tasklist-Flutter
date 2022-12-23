@@ -27,7 +27,7 @@ keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
 
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
-apply plugin: 'com.google.gms.google-services'
+apply plugin: 'com.google.gms.google-services'                             //Plugins para la conexion con firebase
 apply from: "$flutterRoot/packages/flutter_tools/gradle/flutter.gradle"
 
 android {
@@ -82,7 +82,7 @@ dependencies {
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
 
     implementation 'com.android.support:multidex:1.0.3'
-    implementation platform('com.google.firebase:firebase-bom:31.1.1')
+    implementation platform('com.google.firebase:firebase-bom:31.1.1')               //dependencias agregadas para la conexion con firebase//
     implementation 'com.google.firebase:firebase-analytics-ktx'
     implementation("androidx.multidex:multidex:2.0.1")
 }
